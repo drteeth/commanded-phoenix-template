@@ -13,6 +13,14 @@ config :huevos, Huevos.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+config :huevos, Huevos.EventStore,
+  hostname: "localhost",
+  username: "postgres",
+  password: "postgres",
+  database: "huevos_eventstore_test#{System.get_env("MIX_TEST_PARTITION")}",
+  pool_size: 3
+
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :huevos, HuevosWeb.Endpoint,

@@ -17,9 +17,8 @@ defmodule Huevos.Application do
       # Start Finch
       {Finch, name: Huevos.Finch},
       # Start the Endpoint (http/https)
-      HuevosWeb.Endpoint
-      # Start a worker by calling: Huevos.Worker.start_link(arg)
-      # {Huevos.Worker, arg}
+      HuevosWeb.Endpoint,
+      Huevos.CommandDispatcher,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

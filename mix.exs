@@ -50,6 +50,8 @@ defmodule Huevos.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:commanded, "~> 1.4"},
+      {:commanded_eventstore_adapter, "~> 1.4"},
       {:ecto_psql_extras, "~> 0.6"},
       {:ex_machina, "~> 2.7"},
       {:faker, "~> 0.17.0"},
@@ -68,6 +70,8 @@ defmodule Huevos.MixProject do
       "ecto.setup": [
         "ecto.create",
         "ecto.migrate",
+        "event_store.create",
+        "event_store.init",
         "run priv/repo/seeds.exs"
       ],
       "ecto.reset": ["ecto.drop", "ecto.setup"],

@@ -28,7 +28,8 @@ defmodule Huevos.DataCase do
   end
 
   setup tags do
-    Huevos.DataCase.setup_sandbox(tags)
+    :ok = Huevos.DataCase.setup_sandbox(tags)
+    :ok = Huevos.DataCase.reset_storage(tags)
     :ok
   end
 
@@ -38,6 +39,10 @@ defmodule Huevos.DataCase do
   def setup_sandbox(tags) do
     pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Huevos.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
+  end
+
+  def reset_storage(_tags) do
+    Huevos.Storage.reset!()
   end
 
   @doc """
