@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :huevos,
-  ecto_repos: [Huevos.Repo],
+config :foo_bar,
+  ecto_repos: [FooBar.Repo],
   generators: [binary_id: true],
-  event_stores: [Huevos.EventStore]
+  event_stores: [FooBar.EventStore]
 
 # Configures the endpoint
-config :huevos, HuevosWeb.Endpoint,
+config :foo_bar, FooBarWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: HuevosWeb.ErrorHTML, json: HuevosWeb.ErrorJSON],
+    formats: [html: FooBarWeb.ErrorHTML, json: FooBarWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Huevos.PubSub,
+  pubsub_server: FooBar.PubSub,
   live_view: [signing_salt: "9+EIr2ay"]
 
 # Configures the mailer
@@ -29,7 +29,7 @@ config :huevos, HuevosWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :huevos, Huevos.Mailer, adapter: Swoosh.Adapters.Local
+config :foo_bar, FooBar.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -62,7 +62,7 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Commanded
-config :huevos, Huevos.EventStore, serializer: Commanded.Serialization.JsonSerializer
+config :foo_bar, FooBar.EventStore, serializer: Commanded.Serialization.JsonSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -1,4 +1,4 @@
-# Huevos
+# FooBar
 
 To start your Phoenix server:
 

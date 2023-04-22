@@ -1,12 +1,12 @@
-defmodule HuevosWeb do
+defmodule FooBarWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use HuevosWeb, :controller
-      use HuevosWeb, :html
+      use FooBarWeb, :controller
+      use FooBarWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule HuevosWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: HuevosWeb.Layouts]
+        layouts: [html: FooBarWeb.Layouts]
 
       import Plug.Conn
-      import HuevosWeb.Gettext
+      import FooBarWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule HuevosWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {HuevosWeb.Layouts, :app}
+        layout: {FooBarWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule HuevosWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import HuevosWeb.CoreComponents
-      import HuevosWeb.Gettext
+      import FooBarWeb.CoreComponents
+      import FooBarWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule HuevosWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: HuevosWeb.Endpoint,
-        router: HuevosWeb.Router,
-        statics: HuevosWeb.static_paths()
+        endpoint: FooBarWeb.Endpoint,
+        router: FooBarWeb.Router,
+        statics: FooBarWeb.static_paths()
     end
   end
 

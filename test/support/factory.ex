@@ -1,3 +1,3 @@
-defmodule Huevos.Factory do
-  use ExMachina.Ecto, repo: Huevos.Repo
+defmodule FooBar.Factory do
+  use ExMachina.Ecto, repo: FooBar.Repo
 end

@@ -1,12 +1,12 @@
-defmodule HuevosWeb.ErrorHTML do
-  use HuevosWeb, :html
+defmodule FooBarWeb.ErrorHTML do
+  use FooBarWeb, :html
 
   # If you want to customize your error pages,
   # uncomment the embed_templates/1 call below
   # and add pages to the error directory:
   #
-  #   * lib/huevos_web/controllers/error_html/404.html.heex
-  #   * lib/huevos_web/controllers/error_html/500.html.heex
+  #   * lib/foo_bar_web/controllers/error_html/404.html.heex
+  #   * lib/foo_bar_web/controllers/error_html/500.html.heex
   #
   # embed_templates "error_html/*"
 

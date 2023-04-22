@@ -1,4 +1,4 @@
-defmodule HuevosWeb.CoreComponents do
+defmodule FooBarWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -17,7 +17,7 @@ defmodule HuevosWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import HuevosWeb.Gettext
+  import FooBarWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -625,9 +625,9 @@ defmodule HuevosWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(HuevosWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(FooBarWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(HuevosWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(FooBarWeb.Gettext, "errors", msg, opts)
     end
   end
 

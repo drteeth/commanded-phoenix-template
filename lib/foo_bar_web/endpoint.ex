@@ -1,12 +1,12 @@
-defmodule HuevosWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :huevos
+defmodule FooBarWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :foo_bar
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_huevos_key",
+    key: "_foo_bar_key",
     signing_salt: "ccO2e7Q+",
     same_site: "Lax"
   ]
@@ -19,9 +19,9 @@ defmodule HuevosWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :huevos,
+    from: :foo_bar,
     gzip: false,
-    only: HuevosWeb.static_paths()
+    only: FooBarWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,7 +29,7 @@ defmodule HuevosWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :huevos
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :foo_bar
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -47,5 +47,5 @@ defmodule HuevosWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug HuevosWeb.Router
+  plug FooBarWeb.Router
 end

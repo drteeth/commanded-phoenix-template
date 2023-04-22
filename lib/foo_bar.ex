@@ -1,6 +1,6 @@
-defmodule Huevos do
+defmodule FooBar do
   @moduledoc """
-  Huevos keeps the contexts that define your domain
+  FooBar keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

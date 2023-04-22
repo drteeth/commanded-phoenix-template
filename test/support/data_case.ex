@@ -1,4 +1,4 @@
-defmodule Huevos.DataCase do
+defmodule FooBar.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule Huevos.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Huevos.DataCase, async: true`, although
+  by setting `use FooBar.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,18 +18,18 @@ defmodule Huevos.DataCase do
 
   using do
     quote do
-      alias Huevos.Repo
+      alias FooBar.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Huevos.DataCase
+      import FooBar.DataCase
     end
   end
 
   setup tags do
-    :ok = Huevos.DataCase.setup_sandbox(tags)
-    :ok = Huevos.DataCase.reset_storage(tags)
+    :ok = FooBar.DataCase.setup_sandbox(tags)
+    :ok = FooBar.DataCase.reset_storage(tags)
     :ok
   end
 
@@ -37,12 +37,12 @@ defmodule Huevos.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Huevos.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(FooBar.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end
 
   def reset_storage(_tags) do
-    Huevos.Storage.reset!()
+    FooBar.Storage.reset!()
   end
 
   @doc """

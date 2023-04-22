@@ -1,5 +1,5 @@
-defmodule HuevosWeb.PageControllerTest do
-  use HuevosWeb.ConnCase
+defmodule FooBarWeb.PageControllerTest do
+  use FooBarWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
